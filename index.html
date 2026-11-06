@@ -8,11 +8,13 @@
 <meta name="description" content="結婚相談所のホームページのサンプル。相談所名・人物・料金はすべて架空です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Pinyon+Script&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
 <script>document.documentElement.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('is-reduced');</script>
 </head>
 <body>
+<!-- 読み込み中：金の輪が描かれて、星がきらっと光る -->
+<div class="loader" aria-hidden="true"><svg class="loader_ring" viewBox="0 0 100 100"><circle pathLength="1" cx="50" cy="56" r="30"/><path class="loader_star" d="M50 14l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/></svg><p class="loader_word">Welcome</p></div>
 
 <header class="header">
   <a class="logo" href="#top" aria-label="ことほぎ トップへ"><span class="logo_en">kotohogi</span><span class="logo_ja">結婚相談所 ことほぎ</span></a>
@@ -23,11 +25,17 @@
 </header>
 
 <main id="top">
+  <svg class="thread" aria-hidden="true"><path pathLength="1" d=""/></svg>
 
   <section class="hero">
-    <div class="hero_photo" data-open-photo><img src="photos/hero.jpg" alt="並木道を並んで歩く男女" width="1800" height="1012" fetchpriority="high"></div>
+    <div class="hero_photo"><img src="photos/hero.jpg" alt="並木道を並んで歩く男女" width="1800" height="1012" fetchpriority="high"></div>
+    <svg class="hero_threads" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+      <path class="th th--l" pathLength="1" d="M-10 150 C 200 60, 350 190, 470 110"/>
+      <path class="th th--r" pathLength="1" d="M1010 40 C 800 150, 650 20, 530 110"/>
+    </svg>
+    <svg class="hero_knot" viewBox="0 0 120 60" aria-hidden="true"><path pathLength="1" d="M4 30h22c10 0 14-20 26-20s16 14 8 22-22 4-22-6 14-16 26-16 22 8 22 20-12 20-22 12-4-22 8-22 14 6 16 10h28"/></svg>
     <div class="hero_body">
-      <p class="hero_en" data-open="1"><i>for your next step</i></p>
+      <p class="hero_en" data-open="1">for your next step</p>
       <h1 class="hero_copy" data-open="2"><span>幸せになりたい人を、</span><span>全力で応援する。</span></h1>
       <p class="hero_lead" data-open="3">初婚の方も、再婚の方も。<br>新しい一歩を、いちばん近くで支えます。</p>
       <div data-open="4"><a class="btn" href="#contact">無料カウンセリングを予約する</a></div>
@@ -37,7 +45,8 @@
   <!-- 当相談所について -->
   <section class="about" id="about">
     <header class="secHead" data-up>
-      <p class="secHead_en"><i>About us</i></p>
+      <p class="secHead_en">About us</p>
+      <svg class="knot knot--head" viewBox="0 0 120 60" aria-hidden="true"><path pathLength="1" d="M4 30h22c10 0 14-20 26-20s16 14 8 22-22 4-22-6 14-16 26-16 22 8 22 20-12 20-22 12-4-22 8-22 14 6 16 10h28"/><path pathLength="1" d="M4 36h20c10 0 12 14 24 14s16-10 22-10 14 10 22 10h24"/></svg>
       <h2 class="secHead_ja">ことほぎが、<br class="sp">大切にしていること</h2>
     </header>
     <ul class="about_list" data-each>
@@ -48,7 +57,7 @@
     <div class="counselor">
       <div class="counselor_photo" data-reveal><img src="photos/counselor.jpg" alt="カウンセラーの宮本さん" width="1440" height="1800" loading="lazy"></div>
       <div class="counselor_body" data-each>
-        <p class="secHead_en" data-up><i>Counselor</i></p>
+        <p class="secHead_en" data-up>Counselor</p>
         <h3 class="counselor_name" data-up>宮本 さとこ<small>代表カウンセラー（架空）</small></h3>
         <p class="counselor_text" data-up>ブライダルの仕事で、たくさんの「おめでとう」の場に立ち会ってきました。その手前で迷っている方の背中を、そっと、でも力強く押したい。そう思って、この相談所をはじめました。</p>
       </div>
@@ -58,21 +67,22 @@
   <!-- サービス・料金 -->
   <section class="plan" id="plan">
     <header class="secHead" data-up>
-      <p class="secHead_en"><i>Plan &amp; Price</i></p>
+      <p class="secHead_en">Plan &amp; Price</p>
+      <svg class="knot knot--head" viewBox="0 0 120 60" aria-hidden="true"><path pathLength="1" d="M4 30h22c10 0 14-20 26-20s16 14 8 22-22 4-22-6 14-16 26-16 22 8 22 20-12 20-22 12-4-22 8-22 14 6 16 10h28"/><path pathLength="1" d="M4 36h20c10 0 12 14 24 14s16-10 22-10 14 10 22 10h24"/></svg>
       <h2 class="secHead_ja">サービス・料金</h2>
     </header>
     <div class="plan_list" data-each>
       <article class="pCard" data-up>
-        <h3>ライト</h3><p class="pCard_for">自分のペースで進めたい方に</p>
+        <span class="env" aria-hidden="true"></span><h3>ライト</h3><p class="pCard_for">自分のペースで進めたい方に</p>
         <dl><div><dt>入会金</dt><dd>33,000<small>円</small></dd></div><div><dt>月会費</dt><dd>11,000<small>円</small></dd></div><div><dt>お見合い</dt><dd>月4件まで</dd></div></dl>
       </article>
       <article class="pCard pCard--main" data-up>
         <p class="pCard_tag">いちばん選ばれています</p>
-        <h3>スタンダード</h3><p class="pCard_for">カウンセラーと二人三脚で</p>
+        <span class="env" aria-hidden="true"></span><h3>スタンダード</h3><p class="pCard_for">カウンセラーと二人三脚で</p>
         <dl><div><dt>入会金</dt><dd>55,000<small>円</small></dd></div><div><dt>月会費</dt><dd>16,500<small>円</small></dd></div><div><dt>お見合い</dt><dd>月8件まで</dd></div></dl>
       </article>
       <article class="pCard" data-up>
-        <h3>プレミアム</h3><p class="pCard_for">半年での成婚をめざす方に</p>
+        <span class="env" aria-hidden="true"></span><h3>プレミアム</h3><p class="pCard_for">半年での成婚をめざす方に</p>
         <dl><div><dt>入会金</dt><dd>88,000<small>円</small></dd></div><div><dt>月会費</dt><dd>22,000<small>円</small></dd></div><div><dt>お見合い</dt><dd>無制限</dd></div></dl>
       </article>
     </div>
@@ -84,8 +94,9 @@
     <div class="flow_photo" data-reveal><img src="photos/meeting.jpg" alt="ホテルのラウンジで向かい合って笑う男女" width="1440" height="1800" loading="lazy"></div>
     <div class="flow_body">
       <header class="secHead secHead--left" data-up>
-        <p class="secHead_en"><i>Flow</i></p>
-        <h2 class="secHead_ja">成婚までのながれ</h2>
+        <p class="secHead_en">Flow</p>
+        <svg class="knot knot--head" viewBox="0 0 120 60" aria-hidden="true"><path pathLength="1" d="M4 30h22c10 0 14-20 26-20s16 14 8 22-22 4-22-6 14-16 26-16 22 8 22 20-12 20-22 12-4-22 8-22 14 6 16 10h28"/><path pathLength="1" d="M4 36h20c10 0 12 14 24 14s16-10 22-10 14 10 22 10h24"/></svg>
+      <h2 class="secHead_ja">成婚までのながれ</h2>
       </header>
       <div class="flow_track">
       <span class="flow_line" aria-hidden="true" data-grow></span>
@@ -94,7 +105,7 @@
         <li data-up><b>STEP 2</b><h3>ご入会・プロフィール作成</h3><p>プロフィールの文章と写真を、カウンセラーと一緒に整えます。</p></li>
         <li data-up><b>STEP 3</b><h3>お見合い</h3><p>ホテルのラウンジなどで、1時間ほどお茶をしながらお話しします。</p></li>
         <li data-up><b>STEP 4</b><h3>交際</h3><p>デートの相談や、気持ちの整理も。困ったときはいつでも連絡してください。</p></li>
-        <li data-up><b>STEP 5</b><h3>ご成婚</h3><p>おふたりで結婚の意思を決めたら、ご成婚です。心からお祝いします。</p></li>
+        <li data-up><b>STEP 5</b><svg class="knot knot--flow" viewBox="0 0 120 60" aria-hidden="true"><path pathLength="1" d="M4 30h22c10 0 14-20 26-20s16 14 8 22-22 4-22-6 14-16 26-16 22 8 22 20-12 20-22 12-4-22 8-22 14 6 16 10h28"/><path pathLength="1" d="M4 36h20c10 0 12 14 24 14s16-10 22-10 14 10 22 10h24"/></svg><h3>ご成婚</h3><p>おふたりで結婚の意思を決めたら、ご成婚です。心からお祝いします。</p></li>
       </ol>
       </div>
     </div>
@@ -103,7 +114,8 @@
   <!-- よくある質問 -->
   <section class="faq" id="faq">
     <header class="secHead" data-up>
-      <p class="secHead_en"><i>Q&amp;A</i></p>
+      <p class="secHead_en">Q&amp;A</p>
+      <svg class="knot knot--head" viewBox="0 0 120 60" aria-hidden="true"><path pathLength="1" d="M4 30h22c10 0 14-20 26-20s16 14 8 22-22 4-22-6 14-16 26-16 22 8 22 20-12 20-22 12-4-22 8-22 14 6 16 10h28"/><path pathLength="1" d="M4 36h20c10 0 12 14 24 14s16-10 22-10 14 10 22 10h24"/></svg>
       <h2 class="secHead_ja">よくある質問</h2>
     </header>
     <div class="faq_list" data-each>
@@ -118,7 +130,7 @@
   <section class="contact" id="contact" data-bar-end>
     <div class="contact_photo"><img data-parallax src="photos/room.jpg" alt="アイボリーの椅子が向かい合うカウンセリングルーム" width="1800" height="1350" loading="lazy"></div>
     <div class="contact_card" data-each>
-      <p class="secHead_en" data-up><i>Contact</i></p>
+      <p class="secHead_en" data-up>Contact</p>
       <h2 class="contact_h" data-up>まずは、<br>お話を聞かせてください。</h2>
       <p class="contact_text" data-up>無料カウンセリングは60分。対面・オンラインのどちらでも。<br>お茶を飲みながら、気軽にお越しください。</p>
       <div class="contact_btns" data-up>
@@ -142,6 +154,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
-<script src="main.js?v=1"></script>
+<script src="main.js?v=2"></script>
 </body>
 </html>

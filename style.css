@@ -43,7 +43,6 @@ ul, ol { list-style: none; }
 
 /* 最初の画面 */
 .hero { position: relative; min-height: 100svh; display: flex; align-items: center; padding: 120px var(--gutter) 80px; overflow: hidden; }
-.hero_photo { position: absolute; inset: 0; z-index: -1; }
 .hero_photo img { width: 100%; height: 100%; object-fit: cover; object-position: 65% 50%; }
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(251,247,241,.92) 0%, rgba(251,247,241,.6) 36%, rgba(251,247,241,0) 62%); }
 .hero_en { font-family: var(--en); font-size: clamp(22px, 2.2vw, 30px); color: var(--gold); }
@@ -141,9 +140,7 @@ section { padding-block: clamp(96px, 11vw, 160px); }
   body { font-size: 15px; }
   .sp { display: inline; }
   .header .btn { display: none; }
-  .hero { align-items: flex-end; padding-bottom: 64px; }
-  .hero::after { background: linear-gradient(0deg, rgba(251,247,241,.96) 0%, rgba(251,247,241,.82) 40%, rgba(251,247,241,0) 70%); }
-  .hero_photo img { object-position: 72% 30%; }
+  .hero_photo img { object-position: 60% 30%; }
   .hero_copy { font-size: clamp(26px, 7.6vw, 32px); }
   .hero_lead { font-size: 14px; margin: 14px 0 24px; }
   .hero .btn { width: 100%; }
@@ -161,4 +158,66 @@ section { padding-block: clamp(96px, 11vw, 160px); }
 
 @media (prefers-reduced-motion: reduce) {
   .js [data-up], .js [data-open], .js .header { opacity: 1; transform: none; }
+}
+
+/* ===== v2：ご縁の糸と水引 ===== */
+:root { --script: "Pinyon Script", cursive; }
+.secHead_en, .hero_en { font-family: var(--script); font-style: normal; font-size: clamp(30px, 3.2vw, 46px); line-height: 1.1; }
+.hero_en { font-size: clamp(28px, 2.6vw, 38px); }
+
+/* 読み込み中 */
+.loader { position: fixed; inset: 0; z-index: 100; background: var(--ivory); display: grid; place-items: center; align-content: center; }
+.loader_ring { width: 120px; height: 120px; overflow: visible; }
+.loader_ring circle { fill: none; stroke: var(--gold); stroke-width: 1.4; }
+.loader_star { fill: var(--gold); }
+.loader_word { font-family: var(--script); font-size: 44px; color: var(--gold); margin-top: -6px; }
+html:not(.js) .loader, .is-reduced .loader { display: none; }
+
+/* 最初の画面：アーチの写真と結ばれる線 */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(24px, 5vw, 80px); align-items: center; }
+.hero::after { display: none; }
+.hero_photo { position: relative; inset: auto; z-index: 0; order: 2; aspect-ratio: 4 / 5; max-height: 78vh; border-radius: 999px 999px 12px 12px; overflow: hidden; box-shadow: 0 0 0 1px var(--gold), 0 0 0 10px var(--ivory), 0 0 0 11px rgba(194,165,111,.5); }
+.hero_photo img { object-position: 70% 50%; }
+.hero_threads { position: absolute; left: 0; right: 0; bottom: 6%; width: 100%; height: 30%; pointer-events: none; z-index: 1; }
+.th { fill: none; stroke: var(--gold); stroke-width: 1.3; vector-effect: non-scaling-stroke; }
+.hero_knot { position: absolute; z-index: 2; left: 50%; bottom: calc(6% + 30% * .45); width: 84px; margin-left: -42px; overflow: visible; opacity: 0; }
+.hero_knot path { fill: none; stroke: var(--gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ご縁の糸：ページ全体を縫う */
+main { position: relative; }
+.thread { position: absolute; left: 0; top: 0; width: 100%; pointer-events: none; z-index: 0; overflow: visible; }
+.thread path { fill: none; stroke: var(--gold); stroke-width: 1; opacity: .55; }
+main > section { position: relative; z-index: 1; }
+.plan, .faq { background: transparent; }
+.plan { background: rgba(245,232,225,.75); }
+.faq { background: rgba(255,255,255,.7); }
+
+/* 水引の結び */
+.knot { display: block; overflow: visible; }
+.knot path { fill: none; stroke: var(--gold); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.knot path + path { stroke: var(--pinkbeige); stroke-width: 2.2; }
+.knot--head { width: 72px; margin: 10px auto 4px; }
+.secHead--left .knot--head { margin-left: 0; }
+.knot--flow { width: 96px; margin: 4px 0 6px; }
+
+/* 招待状のような料金カード */
+.pCard { position: relative; overflow: visible; perspective: 600px; padding-top: 56px; }
+.pCard::before { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(194,165,111,.55); border-radius: 10px; pointer-events: none; }
+.env { position: absolute; left: 0; right: 0; top: 0; height: 46px; background: linear-gradient(135deg, var(--pinkbeige2), #fff); clip-path: polygon(0 0, 100% 0, 50% 100%); transform-origin: 50% 0; backface-visibility: hidden; border-radius: 16px 16px 0 0; }
+.env::after { content: ""; position: absolute; left: 50%; top: 22px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: var(--gold); }
+.pCard--main { padding-top: 66px; }
+
+/* 成婚までのながれ：写真もアーチに */
+.flow_photo { border-radius: 999px 999px 16px 16px; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding-top: 84px; gap: 22px; align-items: start; min-height: 0; }
+  .hero_photo { order: -1; width: 82%; justify-self: center; aspect-ratio: 4 / 4.4; max-height: none; }
+  .hero_threads { bottom: auto; top: 34%; height: 14%; }
+  .hero_knot { bottom: auto; top: calc(34% + 14% * .3); width: 60px; margin-left: -30px; }
+  .hero .btn { width: 100%; }
+  .thread path { opacity: .35; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero_knot { opacity: 1; }
 }
